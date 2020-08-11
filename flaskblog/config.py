@@ -3,7 +3,7 @@ import os
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI =  'postgres://tyiuqokgzyrbem:7a906139c3b520dab15e6f603d3ff0c40f7b88d313d1db6cd4f603a04961c0b3@ec2-34-195-115-225.compute-1.amazonaws.com:5432/d3qgi53uaj1knr'#os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
