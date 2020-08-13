@@ -15,8 +15,9 @@ def new_post():
     form = PostForm()
     if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
+	ls = "INSERT INTO post ( title, date_posted, content, user_id) VALUES ('{form.title.data}' , {current_timestamp}, '{form.content.data}', '{current_user}');"
         cur = conn.cursor()
-    	cur.execute(f"INSERT INTO post ( title, date_posted, content, user_id) VALUES ('{form.title.data}' , current_timestamp, '{form.content.data}', '{current_user}');")
+    	cur.execute(fls)
 	conn.commit()
         #db.session.add(post)
         #db.session.commit()
