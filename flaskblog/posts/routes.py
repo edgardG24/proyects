@@ -16,10 +16,10 @@ def new_post():
     if form.validate_on_submit():
         post = Post(title=form.title.data, content=form.content.data, author=current_user)
         cur = conn.cursor()
-        cur.execute("INSERT INTO post (id, title, date_posted, content, user_id) VALUES (7, 'Tesst', '2020-08-08 21:08:27.494782', 'First Post content!', 1);")
-        conn.commit()
-        db.session.add(post)
-        db.session.commit()
+    	cur.execute("INSERT INTO post ( title, date_posted, content, user_id) VALUES ("+form.title.data+"," +current_timestamp+","+ form.content.data+", "+current_user+");")
+	conn.commit()
+        #db.session.add(post)
+        #db.session.commit()
         flash('¡Tu post ha sido creado!', 'success')
         return redirect(url_for('main.home'))
     return render_template('create_post.html', title='Nuevo Post',
