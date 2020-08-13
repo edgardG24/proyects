@@ -20,7 +20,6 @@ def register():
         flash(password=hashed_password, 'success') 
         db.session.add(user)
         db.session.commit()
-        flash(password=hashed_password, 'success') 
         flash('¡Tu cuenta ha sido creada! Ahora puedes iniciar sesión', 'success')
         return redirect(url_for('users.login'))
     return render_template('register.html', title='Register', form=form)
